@@ -172,9 +172,9 @@ class StorageUri(object):
             return bucket.list(prefix=prefix, delimiter=delimiter,
                                headers=headers)
 
-    def get_all_keys(self, validate=False, headers=None, prefix=None):
+    def get_all_keys(self, validate=False, headers=None, **params):
         bucket = self.get_bucket(validate, headers)
-        return bucket.get_all_keys(headers)
+        return bucket.get_all_keys(headers, **params)
 
     def get_bucket(self, validate=False, headers=None):
         self._check_bucket_uri('get_bucket')
